@@ -7,5 +7,11 @@ class TennisTest : FunSpec(
             val sut = Tennis()
             sut.score() shouldBe "love_all"
         }
+        test("test fifteen love"){
+            val sut = Tennis()
+            sut.firstPlayerScore()
+            sut.score() shouldBe "fifteen_love"
+        }
+
     }
 )
