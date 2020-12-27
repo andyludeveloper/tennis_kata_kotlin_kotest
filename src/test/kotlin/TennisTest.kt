@@ -12,29 +12,39 @@ class TennisTest : FunSpec() {
 
         test("test love all"){
             player1Score(0)
+            player2Score(0)
             sut.score() shouldBe "love_all"
         }
 
         test("test fifteen love"){
             player1Score(1)
+            player2Score(0)
             sut.score() shouldBe "fifteen_love"
         }
 
 
         test("test thirty love"){
             player1Score(2)
+            player2Score(0)
             sut.score() shouldBe "thirty_love"
         }
 
         test("test forty love"){
             player1Score(3)
+            player2Score(0)
             sut.score() shouldBe "forty_love"
         }
 
        test("test love fifteen"){
-           sut.secondPlayerScore()
+           player1Score(0)
+           player2Score(1)
            sut.score() shouldBe "love_fifteen"
        }
+    }
+
+    private fun player2Score(i: Int) {
+        for(score in 0 until i)
+            sut.secondPlayerScore()
     }
 
     private fun player1Score(i: Int) {
