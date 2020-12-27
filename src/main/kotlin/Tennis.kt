@@ -11,19 +11,16 @@ class Tennis(private val player1Name: String, private val player2Name: String) {
     )
 
     fun score(): String {
-        if (isSameScore()) {
-            if (isDeuce()) {
-                return "deuce"
-            }
-            return "${stringLookup[player1Score]}_all"
+        return if (isSameScore()) {
+            if(isDeuce()) deuce() else sameScore()
         } else {
-            if (isReadyForWin()) {
-                return advState()
-            }
-
-            return normalScore()
+            if(isReadyForWin()) advState() else normalScore()
         }
     }
+
+    private fun deuce() = "deuce"
+
+    private fun sameScore() = "${stringLookup[player1Score]}_all"
 
     private fun normalScore() =
         "${stringLookup[player1Score]}_${stringLookup[player2Score]}"
