@@ -1,6 +1,6 @@
 import kotlin.math.abs
 
-class Tennis(val player1Name:String, val player2Name:String) {
+class Tennis(val player1Name: String, val player2Name: String) {
     var player1Score = 0
     var player2Score = 0
 
@@ -17,19 +17,16 @@ class Tennis(val player1Name:String, val player2Name:String) {
             }
             return "${stringLookup[player1Score]}_all"
         }
-        if(player1Score >= 3 && player2Score >= 3 ) {
-             if(isAdv()) {
-                 return "${advPlayer()} adv"
-             }
-            if(isWin()){
-                return "${advPlayer()} win"
+        if (player1Score >= 3 && player2Score >= 3) {
+            if (isAdv()) {
+                return "${advPlayer()} adv"
             }
+            return "${advPlayer()} win"
         }
 
         return "${stringLookup[player1Score]}_${stringLookup[player2Score]}"
     }
 
-    private fun isWin() = abs(player1Score - player2Score) == 2
 
     private fun isAdv() = abs(player1Score - player2Score) == 1
 
