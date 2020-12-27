@@ -5,7 +5,7 @@ import io.kotest.matchers.shouldBe
 
 
 class TennisTest : FunSpec() {
-    private val sut = Tennis()
+    private val sut = Tennis("Andy", "Jack")
     override fun isolationMode() = IsolationMode.InstancePerTest
 
    init {
@@ -68,7 +68,7 @@ class TennisTest : FunSpec() {
        test("test player1 adv"){
            player1Score(4)
            player2Score(3)
-           sut.score() shouldBe "player1 adv"
+           sut.score() shouldBe "Andy adv"
        }
     }
 

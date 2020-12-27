@@ -1,4 +1,4 @@
-class Tennis {
+class Tennis(val player1Name:String, val player2Name:String) {
     var player1Score = 0
     var player2Score = 0
 
@@ -14,6 +14,10 @@ class Tennis {
                 return "deuce"
             }
             return "${stringLookup[player1Score]}_all"
+        }
+
+        if(player1Score >= 3 && player1Score - player2Score == 1) {
+            return "$player1Name adv"
         }
 
         return "${stringLookup[player1Score]}_${stringLookup[player2Score]}"
