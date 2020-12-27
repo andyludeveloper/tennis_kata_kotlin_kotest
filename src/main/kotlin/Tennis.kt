@@ -9,8 +9,12 @@ class Tennis {
             2 to "thirty",
             3 to "forty"
         )
-        if (player1Score == player2Score)
+        if (player1Score == player2Score) {
+            if (player1Score >= 3) {
+                return "deuce"
+            }
             return "${stringLookup[player1Score]}_all"
+        }
 
         return "${stringLookup[player1Score]}_${stringLookup[player2Score]}"
     }

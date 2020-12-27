@@ -65,8 +65,6 @@ class TennisTest : FunSpec() {
            player2Score(3)
            sut.score() shouldBe "deuce"
        }
-
-
     }
 
     private fun player2Score(i: Int) {
