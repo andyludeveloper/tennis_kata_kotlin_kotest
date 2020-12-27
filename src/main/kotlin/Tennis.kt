@@ -18,17 +18,20 @@ class Tennis(val player1Name:String, val player2Name:String) {
             return "${stringLookup[player1Score]}_all"
         }
         if(player1Score >= 3 && player2Score >= 3 ) {
-             if(abs(player1Score - player2Score) == 1) {
+             if(isAdv()) {
                  return "${advPlayer()} adv"
              }
-            if(abs(player1Score - player2Score) == 2){
-                val winPlayer = if(player1Score > player2Score) player1Name else player2Name
-                return "$winPlayer win"
+            if(isWin()){
+                return "${advPlayer()} win"
             }
         }
 
         return "${stringLookup[player1Score]}_${stringLookup[player2Score]}"
     }
+
+    private fun isWin() = abs(player1Score - player2Score) == 2
+
+    private fun isAdv() = abs(player1Score - player2Score) == 1
 
     private fun advPlayer() = if (player1Score > player2Score) player1Name else player2Name
 

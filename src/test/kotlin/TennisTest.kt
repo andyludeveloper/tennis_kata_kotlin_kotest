@@ -80,6 +80,11 @@ class TennisTest : FunSpec() {
            player2Score(3)
            sut.score() shouldBe "Andy win"
        }
+       test("test player2 win"){
+           player1Score(3)
+           player2Score(5)
+           sut.score() shouldBe "Jack win"
+       }
 
     }
 
