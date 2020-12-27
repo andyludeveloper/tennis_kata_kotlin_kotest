@@ -40,6 +40,12 @@ class TennisTest : FunSpec() {
            player2Score(1)
            sut.score() shouldBe "love_fifteen"
        }
+       test("test love thirty"){
+           player1Score(0)
+           player2Score(2)
+           sut.score() shouldBe "love_thirty"
+       }
+
     }
 
     private fun player2Score(i: Int) {
