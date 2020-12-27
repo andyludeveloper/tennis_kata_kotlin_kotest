@@ -19,13 +19,14 @@ class Tennis(val player1Name:String, val player2Name:String) {
         }
         if(player1Score >= 3 && player2Score >= 3 ) {
              if(abs(player1Score - player2Score) == 1) {
-                 val advName = if(player1Score>player2Score) player1Name else player2Name
-                 return "$advName adv"
+                 return "${advPlayer()} adv"
              }
         }
 
         return "${stringLookup[player1Score]}_${stringLookup[player2Score]}"
     }
+
+    private fun advPlayer() = if (player1Score > player2Score) player1Name else player2Name
 
     private fun isDeuce() = player1Score >= 3
 
