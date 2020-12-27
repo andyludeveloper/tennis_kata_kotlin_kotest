@@ -10,18 +10,20 @@ class Tennis(val player1Name:String, val player2Name:String) {
             3 to "forty"
         )
         if (player1Score == player2Score) {
-            if (player1Score >= 3) {
+            if (isDuece()) {
                 return "deuce"
             }
             return "${stringLookup[player1Score]}_all"
         }
 
-        if(player1Score >= 3 && player1Score - player2Score == 1) {
+        if(isDuece() && player1Score - player2Score == 1) {
             return "$player1Name adv"
         }
 
         return "${stringLookup[player1Score]}_${stringLookup[player2Score]}"
     }
+
+    private fun isDuece() = player1Score >= 3
 
     fun firstPlayerScore() {
         player1Score++
