@@ -1,32 +1,38 @@
 import kotlin.math.abs
 
-class Tennis(val player1Name: String, val player2Name: String) {
-    var player1Score = 0
-    var player2Score = 0
+class Tennis(private val player1Name: String, private val player2Name: String) {
+    private var player1Score = 0
+    private var player2Score = 0
+    private val stringLookup = mapOf(
+        0 to "love",
+        1 to "fifteen",
+        2 to "thirty",
+        3 to "forty"
+    )
 
     fun score(): String {
-        val stringLookup = mapOf(
-            0 to "love",
-            1 to "fifteen",
-            2 to "thirty",
-            3 to "forty"
-        )
         if (isSameScore()) {
             if (isDeuce()) {
                 return "deuce"
             }
             return "${stringLookup[player1Score]}_all"
-        }else{
-            if (player1Score >= 3 && player2Score >= 3) {
-                if (isAdv()) {
-                    return "${advPlayer()} adv"
-                }
-                return "${advPlayer()} win"
+        } else {
+            if (isReadyForWin()) {
+                return advState()
             }
 
-            return "${stringLookup[player1Score]}_${stringLookup[player2Score]}"
+            return normalScore()
         }
     }
+
+    private fun normalScore() =
+        "${stringLookup[player1Score]}_${stringLookup[player2Score]}"
+
+    private fun advState() = "${advPlayer()} ${getWinOrAdv()}"
+
+    private fun getWinOrAdv() = if (isAdv()) "adv" else "win"
+
+    private fun isReadyForWin() = player1Score >= 3 && player2Score >= 3
 
     private fun isSameScore() = player1Score == player2Score
 
