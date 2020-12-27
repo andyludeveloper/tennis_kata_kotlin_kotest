@@ -1,16 +1,19 @@
 class Tennis {
-    var playerScore = 0
+    var player1Score = 0
 
     fun score(): String {
-        if(playerScore == 1)
-            return "fifteen_love"
-        if(playerScore == 2)
-            return "thirty_love"
+        val stringLookup = mapOf(
+            1 to "fifteen",
+            2 to "thirty"
+        )
+        if(player1Score > 0)
+            return "${stringLookup[player1Score]}_love"
+
         return "love_all"
     }
 
     fun firstPlayerScore() {
-        playerScore++
+        player1Score++
     }
 
 }
