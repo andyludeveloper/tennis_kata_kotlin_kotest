@@ -11,22 +11,24 @@ class Tennis(val player1Name: String, val player2Name: String) {
             2 to "thirty",
             3 to "forty"
         )
-        if (player1Score == player2Score) {
+        if (isSameScore()) {
             if (isDeuce()) {
                 return "deuce"
             }
             return "${stringLookup[player1Score]}_all"
-        }
-        if (player1Score >= 3 && player2Score >= 3) {
-            if (isAdv()) {
-                return "${advPlayer()} adv"
+        }else{
+            if (player1Score >= 3 && player2Score >= 3) {
+                if (isAdv()) {
+                    return "${advPlayer()} adv"
+                }
+                return "${advPlayer()} win"
             }
-            return "${advPlayer()} win"
-        }
 
-        return "${stringLookup[player1Score]}_${stringLookup[player2Score]}"
+            return "${stringLookup[player1Score]}_${stringLookup[player2Score]}"
+        }
     }
 
+    private fun isSameScore() = player1Score == player2Score
 
     private fun isAdv() = abs(player1Score - player2Score) == 1
 
