@@ -5,13 +5,13 @@ import io.kotest.matchers.shouldBe
 class TennisTest : FunSpec() {
     override fun isolationMode() = IsolationMode.InstancePerTest
 
+    private val sut: Tennis = Tennis()
+
     init {
         test("test love_all"){
-            val sut = Tennis()
             sut.score() shouldBe "love_all"
         }
         test("test fifteen_love"){
-            val sut = Tennis()
             sut.firstPlayerScore()
             sut.score() shouldBe "fifteen_love"
         }
