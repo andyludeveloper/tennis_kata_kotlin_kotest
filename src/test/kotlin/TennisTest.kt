@@ -15,5 +15,11 @@ class TennisTest : FunSpec() {
             sut.firstPlayerScore()
             sut.score() shouldBe "fifteen_love"
         }
+        test("test thirty_love"){
+            sut.firstPlayerScore()
+            sut.firstPlayerScore()
+            sut.score() shouldBe "thirty_love"
+        }
+
     }
 }
