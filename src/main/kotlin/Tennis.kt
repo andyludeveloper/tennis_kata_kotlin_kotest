@@ -12,11 +12,8 @@ class Tennis {
         if(player1Score == player2Score){
             return "${scoreLookup[player1Score]}_all"
         }else{
-            if (player1Score > 0) {
-                return "${scoreLookup[player1Score]}_love"
-            }
+            return "${scoreLookup[player1Score]}_${scoreLookup[player2Score]}"
         }
-        return "love_all"
     }
 
     fun firstPlayerScore() {

@@ -34,6 +34,11 @@ class TennisTest : FunSpec() {
             secondPlayerScoreTimes(2)
             sut.score() shouldBe "thirty_all"
         }
+        test("test love_fifteen"){
+            firstPlayerScoreTimes(0)
+            secondPlayerScoreTimes(1)
+            sut.score() shouldBe "love_fifteen"
+        }
 
     }
 
