@@ -20,8 +20,8 @@ class Tennis(val player1Name: String, val player2Name: String) {
             return "deuce"
         } else {
             if(player1Score >= 3 && player2Score>=3 ){
-                if (player1Score > player2Score && player1Score - player2Score == 1) {
-                    return "${player1Name}_adv"
+                if (abs(player1Score - player2Score) == 1) {
+                    return "${advName()}_adv"
                 }
                 if (player1Score > player2Score && player1Score - player2Score == 2) {
                     return "${player1Name}_win"
@@ -30,6 +30,8 @@ class Tennis(val player1Name: String, val player2Name: String) {
             return "${scoreLookup[player1Score]}_${scoreLookup[player2Score]}"
         }
     }
+
+    private fun advName() = if (player1Score > player2Score) player1Name else player2Name
 
     fun firstPlayerScore() {
         player1Score++
