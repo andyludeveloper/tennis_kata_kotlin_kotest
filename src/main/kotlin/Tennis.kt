@@ -10,7 +10,11 @@ class Tennis {
     fun score(): String {
 
         if(player1Score == player2Score){
-            return "${scoreLookup[player1Score]}_all"
+            if(player1Score<3){
+
+                return "${scoreLookup[player1Score]}_all"
+            }
+            return "deuce"
         }else{
             return "${scoreLookup[player1Score]}_${scoreLookup[player2Score]}"
         }
