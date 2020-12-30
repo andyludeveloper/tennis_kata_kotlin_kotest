@@ -23,8 +23,8 @@ class Tennis(val player1Name: String, val player2Name: String) {
                 if (abs(player1Score - player2Score) == 1) {
                     return "${advName()}_adv"
                 }
-                if (player1Score > player2Score && player1Score - player2Score == 2) {
-                    return "${player1Name}_win"
+                if (abs(player1Score - player2Score) == 2) {
+                    return "${advName()}_win"
                 }
             }
             return "${scoreLookup[player1Score]}_${scoreLookup[player2Score]}"
