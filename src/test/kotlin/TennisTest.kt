@@ -13,7 +13,7 @@ class TennisTest : FunSpec() {
         test("test fifteen_love"){
             val sut = Tennis()
             sut.firstPlayerScore()
-            sut.score() shouldBe "fifteen_all"
+            sut.score() shouldBe "fifteen_love"
         }
     }
 }
