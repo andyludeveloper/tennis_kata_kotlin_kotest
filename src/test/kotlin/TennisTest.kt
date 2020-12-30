@@ -9,17 +9,23 @@ class TennisTest : FunSpec() {
 
     init {
         test("test love_all"){
+            firstPlayerScoreTimes(0)
             sut.score() shouldBe "love_all"
         }
         test("test fifteen_love"){
-            sut.firstPlayerScore()
+            firstPlayerScoreTimes(1)
             sut.score() shouldBe "fifteen_love"
         }
         test("test thirty_love"){
-            sut.firstPlayerScore()
-            sut.firstPlayerScore()
+            firstPlayerScoreTimes(2)
             sut.score() shouldBe "thirty_love"
         }
 
+    }
+
+    private fun firstPlayerScoreTimes(times: Int) {
+        for(time in 0 until times){
+            sut.firstPlayerScore()
+        }
     }
 }
