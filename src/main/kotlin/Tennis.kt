@@ -1,6 +1,6 @@
 import kotlin.math.abs
 
-class Tennis(val player1Name: String, val player2Name: String) {
+class Tennis(private val player1Name: String, private val player2Name: String) {
     private var player2Score: Int = 0
     private var player1Score: Int = 0
     private val scoreLookup = mapOf(
